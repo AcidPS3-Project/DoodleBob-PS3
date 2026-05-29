@@ -51,16 +51,20 @@
 
 if alpha&gt;=1 and room!=rm_planktonbeat
 {
-if (global.krabsboss=false or global.squidwardboss=false or global.sandyboss=false or global.patrickboss=false or global.allmainbosses=true)
+if global.demo==1
+{audio_stop_all() room_goto(rm_demoend)}
+
+else if (global.krabsboss=false or global.squidwardboss=false or global.sandyboss=false or global.patrickboss=false or global.allmainbosses=true)
 {audio_stop_all() room_goto(rm_levelselect)}
 
-if (global.krabsboss=true and global.squidwardboss=true and global.sandyboss=true and global.patrickboss=true and global.allmainbosses=false)
+else
 {global.allmainbosses=true audio_stop_all() room_goto(rm_cbunlocked)}
 }
 
 
 if alpha&gt;=1 and room=rm_planktonbeat
-{audio_stop_all() room_goto(rm_ending)}</string>
+{audio_stop_all() room_goto(rm_ending)}
+</string>
           </argument>
         </arguments>
       </action>

@@ -98,8 +98,8 @@ lives=3</string>
             <string>audio_play_sound(snd_titleappear,1,false);
 instance_create(0,0,obj_titlewhite)
 instance_create(448,288,obj_titlebob)
-instance_create(144,240,obj_loadgame)
-instance_create(144,300,obj_newgame)
+//instance_create(144,240+40,obj_loadgame)
+instance_create(144,300+40,obj_newgame)
 </string>
           </argument>
         </arguments>
@@ -177,9 +177,10 @@ instance_create(624,240,obj_titlelineR3)</string>
 {
 play=true;
 audio_play_sound(msc_title,0,false);
+audio_sound_gain(msc_title,0.6,0);
 alarm[0]=10;
 alarm[1]=2.25*30;
-alarm[2]=5*30;
+alarm[2]=6*30;
 }
 </string>
           </argument>

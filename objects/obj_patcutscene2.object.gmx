@@ -104,7 +104,7 @@ if dialogue=11
 if dialogue=12 and soundplay=false
 {soundplay=true audio_play_sound(msc_levelend,1,false) alarm[0]=20 obj_dbdummy2.sprite_index=db_win with(obj_parrowdummy)instance_destroy() with(obj_smarrow1dummy)instance_destroy() with(obj_smarrow2dummy)instance_destroy()}
 
-if soundplay2=true and !audio_is_playing(msc_levelend)
+if soundplay2=true and audio_sound_get_track_position(msc_levelend)&gt;6.5
 {soundplay2=false instance_create(obj_dbdummy2.x,obj_dbdummy2.y,obj_dbteleportout) with(obj_dbdummy2)instance_destroy()}
 </string>
           </argument>

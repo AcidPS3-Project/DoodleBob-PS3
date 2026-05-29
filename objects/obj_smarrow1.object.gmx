@@ -73,10 +73,11 @@ self.y=obj_doodlebob.y-62</string>
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>move_towards_point(mouse_x,mouse_y,0)
+            <string>move_towards_point(global.mousex,global.mousey,0)
 image_angle=direction
 self.x=obj_doodlebob.x-16
-self.y=obj_doodlebob.y-62</string>
+self.y=obj_doodlebob.y-62
+</string>
           </argument>
         </arguments>
       </action>

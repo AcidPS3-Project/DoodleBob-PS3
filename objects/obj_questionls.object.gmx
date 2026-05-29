@@ -26,7 +26,10 @@
           <argument>
             <kind>1</kind>
             <string>if global.patrickboss=true and global.sandyboss=true and global.krabsboss=true and global.squidwardboss=true
-{instance_change(obj_planktonls,true)}</string>
+{instance_change(obj_planktonls,true)}
+
+if global.demo==1 instance_destroy();
+</string>
           </argument>
         </arguments>
       </action>

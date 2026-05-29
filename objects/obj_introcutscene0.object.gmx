@@ -71,78 +71,18 @@ draw_set_valign(fa_top)
 audio_stop_all() 
 draw_set_color(c_white)
 room_goto(rm_intro)
-}</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="32">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if dialogue&gt;0 and !instance_exists(obj_fadeinintro) and keypress=false
-{dialogue+=1 keypress=true}</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="13">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>draw_set_halign(fa_left) 
-draw_set_valign(fa_top) 
-audio_stop_all() 
-draw_set_color(c_white)
-room_goto(rm_levelselect)</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="10" enumb="32">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>keypress=false</string>
+}
+
+if dialogue&gt;0 and !instance_exists(obj_fadeinintro) and gamepad_button_check_pressed(0,gp_face1) dialogue+=1;
+if gamepad_button_check_pressed(0,gp_start)
+{
+    draw_set_halign(fa_left) 
+    draw_set_valign(fa_top) 
+    audio_stop_all() 
+    draw_set_color(c_white)
+    room_goto(rm_levelselect)
+}
+</string>
           </argument>
         </arguments>
       </action>

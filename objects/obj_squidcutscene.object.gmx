@@ -60,6 +60,54 @@ dialogue=5</string>
         </arguments>
       </action>
     </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if dialogue&gt;0 and dialogue!=4 and gamepad_button_check_pressed(0,gp_face1)
+{
+    if dialogue=3
+    {
+    obj_squidwarddummy.vspeed=-2 
+    obj_squidwarddummy.hspeed=3 
+    obj_squidwarddummy.sprite_index=spr_squidflyR
+    obj_squidwarddummy.image_speed=.3
+    audio_play_sound(snd_zoomdoodles,1,false)
+    alarm[0]=60
+    }
+    
+    if dialogue=5
+    {obj_squidwarddummy.sprite_index=spr_squidflyR1}
+    
+    dialogue+=1;
+}
+if gamepad_button_check_pressed(0,gp_start)
+{
+    global.mousex=320;
+    global.mousey=240;
+    obj_debugger.mx=320;
+    obj_debugger.my=240;
+    audio_stop_all();
+    room_goto(rm_squidboss);
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
@@ -98,89 +146,15 @@ if dialogue=10
 if dialogue=11
 {draw_sbtext(spr_spongebobcs,17,c_yellow,0,"You'll have to hit Squidward about 15 times to defeat him. #Good luck!")}
 if dialogue=12
-{audio_stop_all() room_goto(rm_squidboss)}</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="32">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if dialogue=3
 {
-obj_squidwarddummy.vspeed=-2 
-obj_squidwarddummy.hspeed=3 
-obj_squidwarddummy.sprite_index=spr_squidflyR
-obj_squidwarddummy.image_speed=.3
-audio_play_sound(snd_zoomdoodles,1,false)
-alarm[0]=60
+    global.mousex=320;
+    global.mousey=240;
+    obj_debugger.mx=320;
+    obj_debugger.my=240;
+    audio_stop_all();
+    room_goto(rm_squidboss);
 }
-
-if dialogue=5
-{obj_squidwarddummy.sprite_index=spr_squidflyR1}
-
-if dialogue&gt;0 and dialogue!=4 and keypress=false
-{dialogue+=1 keypress=true}
 </string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="13">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>audio_stop_all()
-room_goto(rm_squidboss)</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="10" enumb="32">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>keypress=false</string>
           </argument>
         </arguments>
       </action>

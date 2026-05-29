@@ -73,20 +73,14 @@ self.y=obj_doodlebob.y-30</string>
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>move_towards_point(mouse_x,mouse_y,0)
+            <string>move_towards_point(global.mousex,global.mousey,0)
 image_angle=direction
 self.x=obj_doodlebob.x+37
 self.y=obj_doodlebob.y-30
 
-if obj_doodlebob.right=true
-{depth=0}
-if obj_doodlebob.right=false
-{depth=-10}
-
-if obj_mousecontrol.erase=false
-{visible=true}
-if obj_mousecontrol.erase=true
-{visible=false}</string>
+if obj_doodlebob.right=true {depth=0} else {depth=-10};
+if obj_mousecontrol.erase=false {visible=true} else {visible=false};
+</string>
           </argument>
         </arguments>
       </action>

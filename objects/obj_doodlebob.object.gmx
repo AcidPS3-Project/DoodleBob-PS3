@@ -47,7 +47,10 @@ if !place_free(self.x,self.y+1)
 alpshoot=1
 chaingunnum=0
 
-{scr_wasd()}
+vkup=gp_face1;
+vkdown=gp_padd;
+vkright=gp_padr;
+vkleft=gp_padl;
 
 instance_create(self.x+37,self.y-30,obj_parrow)
 instance_create(self.x,self.y,obj_mousecontrol)
@@ -55,7 +58,8 @@ instance_create(self.x,self.y,obj_pbeam)
 instance_create(self.x,self.y,obj_arm)
 instance_create(self.x-16,self.y-62,obj_smarrow1)
 instance_create(self.x+16,self.y-62,obj_smarrow2)
-instance_create(self.x,self.y,obj_targeteraser)</string>
+instance_create(self.x,self.y,obj_targeteraser)
+</string>
           </argument>
         </arguments>
       </action>
@@ -229,54 +233,46 @@ alarm[3]=5</string>
             <string>//sprite_controls
 if jump=false
 {
-if right=true
-{sprite_index=spr_walkR};
-if right=false
-{sprite_index=spr_walkL};
-if right=true and accel=0 and !keyboard_check(vkright) and !keyboard_check(vkleft)
-{sprite_index=spr_standR};
-if right=false and accel=0 and !keyboard_check(vkright) and !keyboard_check(vkleft)
-{sprite_index=spr_standL};
+    if right=true
+    {
+        if accel=0 and !(gamepad_button_check(0,vkright) or gamepad_button_check(0,vkleft)) sprite_index=spr_standR
+        else sprite_index=spr_walkR;
+    }
+    if right=false
+    {
+        if accel=0 and !(gamepad_button_check(0,vkright) or gamepad_button_check(0,vkleft)) sprite_index=spr_standL
+        else sprite_index=spr_walkL;
+    }
+
+
+    if accel&gt;0 image_speed=accel/24
+    else if accel&lt;0 image_speed=-accel/24
+    else image_speed=0.0000001/24;
 }
 
 //if nothing is under you, turn on the gravity
-if place_free(self.x,self.y+1)
-{vgravity=.5 jump=true}
+if place_free(x,y+1)
+{vgravity=0.5 jump=true}
 
 //control vgravity
 vspeed+=vgravity
 
 //if vertical speed is more than 12, don't let it go any higher
-if vspeed&gt;12
-{vspeed=12}
-
-//control image speed
-if jump=false
-{
-if accel&gt;0
-{image_speed=accel/24}
-if accel&lt;0
-{image_speed=-accel/24}
-if accel=0
-{image_speed=.0000001/24}
-}
-
-//control which buttons move doodlebob
-scr_buttoncontrol()
+if vspeed&gt;12 vspeed=12
 
 //control health and dying
 if health&lt;=0 or (self.y-86)&gt;room_height
 {
-instance_create(self.x,self.y,obj_dbdead)
-if right=true {obj_dbdead.right=true}; if right=false {obj_dbdead.right=false};
-with(obj_parrow)instance_destroy()
-with(obj_mousecontrol)instance_destroy()
-with(obj_pbeam)instance_destroy()
-with(obj_arm)instance_destroy()
-with(obj_smarrow1)instance_destroy()
-with(obj_smarrow2)instance_destroy()
-with(obj_targeteraser)instance_destroy()
-instance_destroy()
+    instance_create(self.x,self.y,obj_dbdead)
+    if right=true {obj_dbdead.right=true}; if right=false {obj_dbdead.right=false};
+    with(obj_parrow)instance_destroy()
+    with(obj_mousecontrol)instance_destroy()
+    with(obj_pbeam)instance_destroy()
+    with(obj_arm)instance_destroy()
+    with(obj_smarrow1)instance_destroy()
+    with(obj_smarrow2)instance_destroy()
+    with(obj_targeteraser)instance_destroy()
+    instance_destroy()
 }
 
 //cutscene controls
@@ -334,7 +330,7 @@ instance_destroy()
 
 //jumping sprites
 if jump=true and shooting=false and hover&lt;2
-{if right=true {sprite_index=spr_jumpR}; if right=false {sprite_index=spr_jumpL}}
+{if right=true {sprite_index=spr_jumpR} else {sprite_index=spr_jumpL}}
 
 //randomize jump sound effects
 jsnd+=1; if jsnd&gt;3 {jsnd=1};
@@ -367,7 +363,9 @@ instance_activate_object(obj_deathblast)
 instance_activate_object(obj_planktontarget)
 instance_activate_object(obj_planktonwall)
 instance_activate_object(obj_homingpencil)
-instance_activate_object(obj_planktonview)</string>
+instance_activate_object(obj_planktonview)
+instance_activate_object(obj_debugger)
+</string>
           </argument>
         </arguments>
       </action>
@@ -388,7 +386,7 @@ instance_activate_object(obj_planktonview)</string>
           <argument>
             <kind>1</kind>
             <string>//jumping
-if keyboard_check_pressed(vkup)
+if gamepad_button_check_pressed(0,vkup)
 {
 if !place_free(self.x,self.y+(sprite_get_bbox_bottom(mask_index)-85)) and jump=false
 {vspeed=-12 jump=true if (!audio_is_playing(snd_erase) and !audio_is_playing(snd_bobhurt)) {audio_play_sound(jumpsound,1,false)}}
@@ -398,17 +396,17 @@ if !place_free(self.x,self.y+(sprite_get_bbox_bottom(mask_index)-85)) and jump=f
 //-------------------------------------------
 
 //acceleration control
-if !keyboard_check(vkright) and accel&gt;0
+if !gamepad_button_check(0,vkright) and accel&gt;0
 {accel-=.25}
 
-if !keyboard_check(vkleft) and accel&lt;0
+if !gamepad_button_check(0,vkleft) and accel&lt;0
 {accel+=.25}
 
 //-------------------------------------------
 //-------------------------------------------
 
 //move right
-if keyboard_check(vkright) and keypress!=1
+if gamepad_button_check(0,vkright) and keypress!=1
 {
 //turn on keypress
 keypress=2
@@ -447,7 +445,7 @@ if !place_free(self.x+accel,self.y-20) and place_free(self.x,self.y+(sprite_get_
 //-------------------------------------------
 
 //move left
-if keyboard_check(vkleft) and keypress!=2
+if gamepad_button_check(0,vkleft) and keypress!=2
 {
 //turn on keypress
 keypress=1
@@ -486,16 +484,14 @@ if !place_free(self.x+accel,self.y-20) and place_free(self.x,self.y+(sprite_get_
 //-------------------------------------------
 
 //turn off keypress
-if !keyboard_check_released(vkright) and !keyboard_check(vkleft) and keypress!=0
-{keypress=0}
-if !keyboard_check_released(vkleft) and !keyboard_check(vkright) and keypress!=0
+if !(gamepad_button_check_released(0,vkright) or gamepad_button_check(0,vkleft)) and keypress!=0
 {keypress=0}
 
 //-------------------------------------------
 //-------------------------------------------
 
 //deceleration
-if !keyboard_check(vkright) and !keyboard_check(vkleft)
+if !gamepad_button_check(0,vkright) and !gamepad_button_check(0,vkleft)
 {
 //if standing, use loop code
 if jump=false
@@ -758,8 +754,7 @@ move_contact(270)
 jump=false
 vgravity=0
 
-if right=true {sprite_index=spr_standR}
-if right=false {sprite_index=spr_standL}
+if right=true {sprite_index=spr_standR} else {sprite_index=spr_standL}
 }
 
 //if the floor is above you and there is nothing below, stop moving up and contact the surface of the ceiling
@@ -773,7 +768,8 @@ move_contact(90)
 if !place_free(self.x,self.y+(sprite_get_bbox_top(mask_index)-85)) and !place_free(self.x,self.y+(sprite_get_bbox_bottom(mask_index)-85))
 {
 vspeed=0 
-}</string>
+}
+</string>
           </argument>
         </arguments>
       </action>

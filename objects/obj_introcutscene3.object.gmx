@@ -116,6 +116,72 @@ alarm[2]=60
         </arguments>
       </action>
     </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if dialogue&gt;0 and dialogue!=7 and dialogue!=14 and gamepad_button_check_pressed(0,gp_face1)
+{
+    if dialogue=1
+    {audio_play_sound(msc_dbintro,0,true)}
+    
+    if dialogue=2
+    {
+    obj_spongebobdummy.sprite_index=sb_grabR 
+    instance_create(obj_spongebobdummy.x+95,obj_spongebobdummy.y-40,obj_paper)
+    }
+    
+    if dialogue=6
+    {
+    obj_paper.hspeed=4 
+    obj_paper.vspeed=-8 
+    obj_spongebobdummy.sprite_index=sb_throwR 
+    audio_play_sound(snd_robotpunch,1,false)
+    alarm[1]=20
+    }
+    
+    if dialogue=13
+    {
+    obj_pencildummy.stick=false
+    obj_pencildummy.hspeed=8
+    obj_spongebobdummy.sprite_index=sb_grabR
+    audio_play_sound(snd_acornpower,1,false)
+    }
+    
+    if dialogue=20
+    {
+    with(obj_smarrow1dummy)instance_destroy()
+    with(obj_smarrow2dummy)instance_destroy()
+    with(obj_dbdummy3)instance_change(obj_teleportoutL,true)
+    obj_pencildummy.sprite_index=spr_pencilteleport
+    obj_pencildummy.image_index=0
+    obj_pencildummy.image_speed=1.1
+    }
+    dialogue+=1;
+}
+if gamepad_button_check_pressed(0,gp_start)
+{
+    audio_stop_all();
+    room_goto(rm_levelselect);
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
@@ -160,121 +226,16 @@ if dialogue=13
 if dialogue=15
 {draw_sbtext(spr_spongebobcs,0,c_yellow,0,"The Pencil is your only weapon against Plankton's Army, #so use it wisely.")}
 if dialogue=16
-{draw_sbtext(spr_spongebobcs,0,c_yellow,0,"Use the Left Mouse Button to draw, and #the Right Mouse Button to erase.")}
+{draw_sbtext(spr_spongebobcs,0,c_yellow,0,"Use the L1 Button to draw, and the R1 Button to erase.")}
 if dialogue=17
 {draw_sbtext(spr_spongebobcs,2,c_yellow,0,"Remember, you can use the pencil to draw bridges #across gaps, erase things you've drawn, or #even erase enemies!")}
 if dialogue=18
-{draw_sbtext(spr_spongebobcs,0,c_yellow,0,"To move yourself around, use the Arrow Keys or #the letters W,A,S,D on the keyboard.")}
+{draw_sbtext(spr_spongebobcs,0,c_yellow,0,"To move yourself around, use the D-Pad or L-Stick #with Cross on the gamepad.")}
 if dialogue=19
 {draw_sbtext(spr_spongebobcs,0,c_yellow,0,"I've installed a radio in that Pencil so I can give you #some more tips later, when you fight Patrick, Sandy, Squidward, #Mr. Krabs, and eventually Plankton himself.")}
 if dialogue=20
 {draw_sbtext(spr_spongebobcs,2,c_yellow,0,"Good luck, DoodleBob!")}
 </string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="32">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if dialogue=1
-{audio_play_sound(msc_dbintro,0,true)}
-
-if dialogue=2
-{
-obj_spongebobdummy.sprite_index=sb_grabR 
-instance_create(obj_spongebobdummy.x+95,obj_spongebobdummy.y-40,obj_paper)
-}
-
-if dialogue=6
-{
-obj_paper.hspeed=4 
-obj_paper.vspeed=-8 
-obj_spongebobdummy.sprite_index=sb_throwR 
-audio_play_sound(snd_robotpunch,1,false)
-alarm[1]=20
-}
-
-if dialogue=13
-{
-obj_pencildummy.stick=false
-obj_pencildummy.hspeed=8
-obj_spongebobdummy.sprite_index=sb_grabR
-audio_play_sound(snd_acornpower,1,false)
-}
-
-if dialogue=20
-{
-with(obj_smarrow1dummy)instance_destroy()
-with(obj_smarrow2dummy)instance_destroy()
-with(obj_dbdummy3)instance_change(obj_teleportoutL,true)
-obj_pencildummy.sprite_index=spr_pencilteleport
-obj_pencildummy.image_index=0
-obj_pencildummy.image_speed=1.1
-}
-
-if dialogue&gt;0 and dialogue!=7 and dialogue!=14 and keypress=false
-{dialogue+=1 keypress=true}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="13">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>audio_stop_all()
-room_goto(rm_levelselect)</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="10" enumb="32">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>keypress=false</string>
           </argument>
         </arguments>
       </action>

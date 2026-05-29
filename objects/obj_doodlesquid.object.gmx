@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>obj_enemycharparent</parentName>
+  <parentName>obj_enemydoodle</parentName>
   <maskName>spr_squidmask</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -39,7 +39,41 @@ if !place_free(self.x,self.y+1)
 erase=false
 move=true
 dead=false
-enemyhealth=3</string>
+enemyhealth=3
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="5">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if erase=true exit;
+
+if enemyhealth&gt;=2
+{
+    erase=true
+    enemyhealth-=1
+    audio_play_sound(snd_squiderase2,1,false)
+    alarm[2]=5
+    alarm[4]=60
+}
+else if enemyhealth&lt;=1 enemyhealth-=1
+</string>
           </argument>
         </arguments>
       </action>
@@ -64,7 +98,8 @@ enemyhealth=3</string>
             <string>erase=false
 alarm[2]=-1
 alarm[3]=-1
-visible=true</string>
+visible=true
+</string>
           </argument>
         </arguments>
       </action>
@@ -334,38 +369,6 @@ if !place_free(self.x,self.y+(sprite_get_bbox_top(mask_index)-85)) and !place_fr
 {
 vspeed=0 
 }</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="6" enumb="1">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if erase=false and enemyhealth&gt;=2
-{erase=true
-enemyhealth-=1
-audio_play_sound(snd_squiderase2,1,false)
-alarm[2]=5
-alarm[4]=60}
-
-if erase=false and enemyhealth&lt;=1
-{erase=true
-enemyhealth-=1}
-</string>
           </argument>
         </arguments>
       </action>

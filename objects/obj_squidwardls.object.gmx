@@ -38,6 +38,66 @@ image_single=image1</string>
         </arguments>
       </action>
     </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if !instance_exists(obj_lsfadeparent)
+{audio_play_sound(snd_selectlevel,1,false) instance_create(0,0,obj_squidwardselectfade)}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if gamepad_button_check_pressed(0,gp_face1) alarm[0]=1;
+
+/*
+{
+    image_single=image2
+    if soundplay=false
+    {
+        soundplay=true;
+        audio_play_sound(snd_mouseoverbutton,1,false);
+    }
+    
+    image_single=image1
+    soundplay=false
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="6" enumb="11">
       <action>
         <libid>1</libid>
@@ -55,9 +115,7 @@ image_single=image1</string>
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_single=image1
-
-soundplay=false</string>
+            <string></string>
           </argument>
         </arguments>
       </action>
@@ -79,35 +137,7 @@ soundplay=false</string>
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_single=image2
-
-if soundplay=false
-{soundplay=true audio_play_sound(snd_mouseoverbutton,1,false)}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="6" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if !instance_exists(obj_lsfadeparent)
-{audio_play_sound(snd_selectlevel,1,false) instance_create(0,0,obj_squidwardselectfade)}
-</string>
+            <string></string>
           </argument>
         </arguments>
       </action>

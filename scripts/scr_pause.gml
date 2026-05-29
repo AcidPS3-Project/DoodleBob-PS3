@@ -18,11 +18,9 @@ message_button_font(font0,10,c_black,0)
 //pause menu button font when mouse is over
 message_mouse_color(c_black)
 ///The message///
+*/
 {
- answer = show_message_ext("","Continue","Quit Level","End Game")
+ answer = show_question("Continue?")
  if answer == 0 {}
- if answer == 1 {}
- if answer == 2 {message_background(bg_pausebg2) if show_question("") {room_goto(rm_levelselect)} else {scr_pause()}}
- if answer == 3 {message_background(bg_pausebg3) if show_question("") {game_end()} else {scr_pause()}}
-}
+ if answer == 1 {if show_question("Are you sure?") {room_goto(rm_levelselect)} else {scr_pause()}}
 }

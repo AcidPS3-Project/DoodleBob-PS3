@@ -33,7 +33,10 @@ if global.patrickboss=false
 if global.patrickboss=true
 {image1=1 image2=2}
 
-image_single=image1</string>
+image_single=image1
+
+if global.demo==1 instance_destroy();
+</string>
           </argument>
         </arguments>
       </action>

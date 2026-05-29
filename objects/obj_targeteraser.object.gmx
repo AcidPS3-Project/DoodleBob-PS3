@@ -119,15 +119,16 @@ self.y=obj_doodlebob.y</string>
             <string>rotate-=1
 
 if obj_mousecontrol.erase=false
-{draw_sprite_ext(spr_target,0,mouse_x,mouse_y,1,1,rotate,c_black,1)
-draw_sprite_ext(spr_target,1,mouse_x,mouse_y,1,1,0,c_black,1)}
+{draw_sprite_ext(spr_target,0,global.mousex,global.mousey,1,1,rotate,c_black,1)
+draw_sprite_ext(spr_target,1,global.mousex,global.mousey,1,1,0,c_black,1)}
 
 if obj_mousecontrol.erase=true
 {draw_set_color(c_white)
 draw_set_alpha(.5)
-draw_triangle(obj_doodlebob.x+37,obj_doodlebob.y-41,mouse_x,mouse_y,mouse_x+160,mouse_y-153,false)
+draw_triangle(obj_doodlebob.x+37,obj_doodlebob.y-41,global.mousex,global.mousey,global.mousex+160,global.mousey-153,false)
 draw_set_alpha(1)
-draw_sprite(spr_eraser,-1,mouse_x,mouse_y)}</string>
+draw_sprite(spr_eraser,-1,global.mousex,global.mousey)}
+</string>
           </argument>
         </arguments>
       </action>

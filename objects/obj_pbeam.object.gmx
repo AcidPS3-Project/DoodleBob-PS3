@@ -50,7 +50,8 @@
             <string>x=obj_parrow.x
 y=obj_parrow.y
 
-draw_sprite_ext(spr_pbeam,-1,obj_parrow.x,obj_parrow.y,distance_to_point(mouse_x,mouse_y),1,obj_parrow.image_angle,c_white,1)</string>
+draw_sprite_ext(spr_pbeam,-1,obj_parrow.x,obj_parrow.y,distance_to_point(global.mousex,global.mousey),1,obj_parrow.image_angle,c_white,1)
+</string>
           </argument>
         </arguments>
       </action>

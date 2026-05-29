@@ -31,6 +31,10 @@ global.player=1
 global.keycontrol=1
 alp=1
 global.bosshealth=100
+global.mousex=320;
+global.mousey=240;
+obj_debugger.mx=320;
+obj_debugger.my=240;
 health=100
 instance_create(-32,0,obj_invisiwall)
 instance_create(room_width,0,obj_invisiwall)
@@ -102,48 +106,46 @@ if create=true and !instance_position(i,room_height/2,obj_glare) {instance_creat
             <kind>1</kind>
             <string>if !instance_exists(obj_cutsceneparent)
 {
-draw_sprite(spr_dbhealth,-1,view_xview+10,view_yview+10)
-draw_healthbar(view_xview+10,view_yview+32,view_xview+180,view_yview+50,health,c_black,c_gray,c_white,0,true,true)
-draw_sprite(spr_dblives,-1,view_xview+10,view_yview+view_hview-10)
-draw_sprite(spr_dblnumber,lives,view_xview+65,view_yview+view_hview-10)
+    draw_sprite(spr_dbhealth,-1,view_xview+10,view_yview+10)
+    draw_healthbar(view_xview+10,view_yview+32,view_xview+180,view_yview+50,health,c_black,c_gray,c_white,0,true,true)
+    draw_sprite(spr_dblives,-1,view_xview+10,view_yview+view_hview-10)
+    draw_sprite(spr_dblnumber,lives,view_xview+65,view_yview+view_hview-10)
+    
+    if room=rm_patrickboss
+    {
+        draw_sprite(spr_pathealth,-1,view_xview+view_wview-10,view_yview+10)
+        draw_healthbar(view_xview+view_wview-10,view_yview+32,view_xview+view_wview-180,view_yview+50,global.bosshealth,c_black,c_red,c_patpink,0,true,true)
+    }
+    else if room=rm_sandyboss
+    {
+        draw_sprite(spr_sanhealth,-1,view_xview+view_wview-10,view_yview+10)
+        draw_healthbar(view_xview+view_wview-10,view_yview+32,view_xview+view_wview-180,view_yview+50,global.bosshealth,c_black,c_olive,c_sandybrown,0,true,true)
+    }
+    else if room=rm_krabsboss
+    {
+        draw_sprite(spr_krabshealth,-1,view_xview+view_wview-10,view_yview+10)
+        draw_healthbar(view_xview+view_wview-10,view_yview+32,view_xview+view_wview-180,view_yview+50,global.bosshealth,c_black,c_sandybrown,c_red,0,true,true)
+    }
+    else if room=rm_squidboss
+    {
+        draw_sprite(spr_squidhealth,-1,view_xview+view_wview-10,view_yview+10)
+        draw_healthbar(view_xview+view_wview-10,view_yview+32,view_xview+view_wview-180,view_yview+50,global.bosshealth,c_black,c_blue,c_squidblue,0,true,true)
+    }
+    else if room=rm_planktonboss
+    {
+        draw_sprite(spr_plankhealth,-1,view_xview+view_wview-10,view_yview+10)
+        draw_healthbar(view_xview+view_wview-10,view_yview+32,view_xview+view_wview-180,view_yview+50,global.bosshealth,c_black,c_olive,c_green,0,true,true)
+    }
 
-if room=rm_patrickboss
-{
-draw_sprite(spr_pathealth,-1,view_xview+view_wview-10,view_yview+10)
-draw_healthbar(view_xview+view_wview-10,view_yview+32,view_xview+view_wview-180,view_yview+50,global.bosshealth,c_black,c_red,c_patpink,0,true,true)
+    if gamepad_button_check(0,gp_select)
+    {
+        draw_set_font(font0)
+        draw_set_color(c_black)
+        draw_text(view_xview+10,view_yview+70,"FPS:"+string(fps))
+        draw_set_color(c_white)
+    }
 }
-
-if room=rm_sandyboss
-{
-draw_sprite(spr_sanhealth,-1,view_xview+view_wview-10,view_yview+10)
-draw_healthbar(view_xview+view_wview-10,view_yview+32,view_xview+view_wview-180,view_yview+50,global.bosshealth,c_black,c_olive,c_sandybrown,0,true,true)
-}
-
-if room=rm_krabsboss
-{
-draw_sprite(spr_krabshealth,-1,view_xview+view_wview-10,view_yview+10)
-draw_healthbar(view_xview+view_wview-10,view_yview+32,view_xview+view_wview-180,view_yview+50,global.bosshealth,c_black,c_sandybrown,c_red,0,true,true)
-}
-
-if room=rm_squidboss
-{
-draw_sprite(spr_squidhealth,-1,view_xview+view_wview-10,view_yview+10)
-draw_healthbar(view_xview+view_wview-10,view_yview+32,view_xview+view_wview-180,view_yview+50,global.bosshealth,c_black,c_blue,c_squidblue,0,true,true)
-}
-
-if room=rm_planktonboss
-{
-draw_sprite(spr_plankhealth,-1,view_xview+view_wview-10,view_yview+10)
-draw_healthbar(view_xview+view_wview-10,view_yview+32,view_xview+view_wview-180,view_yview+50,global.bosshealth,c_black,c_olive,c_green,0,true,true)
-}
-
-
-if keyboard_check(ord("F"))
-{draw_set_font(font0)
-draw_set_color(c_black)
-draw_text(view_xview+10,view_yview+70,"FPS:"+string(fps)+"#Lives:"+string(lives))
-draw_set_color(c_white)}
-}</string>
+</string>
           </argument>
         </arguments>
       </action>

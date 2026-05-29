@@ -2,7 +2,7 @@
 <object>
   <spriteName>spr_pres</spriteName>
   <solid>0</solid>
-  <visible>0</visible>
+  <visible>-1</visible>
   <depth>1</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
@@ -26,116 +26,14 @@
           <argument>
             <kind>1</kind>
             <string>click=false
-erase=false</string>
+erase=false
+visible=false;
+</string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="2">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>self.x=mouse_x
-self.y=mouse_y
-
-if click=true and !instance_position(mouse_x,mouse_y,obj_grounddraw) and distance_to_object(obj_character)&gt;1
-{instance_create(mouse_x,mouse_y,obj_grounddraw)}</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="3" enumb="1">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>self.x=mouse_x
-self.y=mouse_y
-
-if click=true and !instance_position(mouse_x,mouse_y,obj_grounddraw) and distance_to_object(obj_character)&gt;1
-{instance_create(mouse_x,mouse_y,obj_grounddraw)}</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="3" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>image_angle=random(360)
-
-self.x=mouse_x
-self.y=mouse_y
-touching=false
-
-if click=true and !instance_position(mouse_x,mouse_y,obj_grounddraw) and distance_to_object(obj_character)&gt;1
-{instance_create(mouse_x,mouse_y,obj_grounddraw)}</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_grounddraw">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if erase=true
-{with(other)instance_destroy()}</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="6" enumb="8">
+    <event eventtype="2" enumb="3">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -158,7 +56,7 @@ audio_stop_sound(snd_erase)</string>
         </arguments>
       </action>
     </event>
-    <event eventtype="6" enumb="7">
+    <event eventtype="2" enumb="2">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -184,7 +82,7 @@ audio_stop_sound(snd_draw)</string>
         </arguments>
       </action>
     </event>
-    <event eventtype="6" enumb="1">
+    <event eventtype="2" enumb="1">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -211,7 +109,7 @@ if click=false
         </arguments>
       </action>
     </event>
-    <event eventtype="6" enumb="0">
+    <event eventtype="2" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -239,6 +137,119 @@ audio_stop_sound(snd_erase)
 
 if erase=true
 {erase=false}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>self.x=global.mousex
+self.y=global.mousey
+
+if click=true and !instance_position(global.mousex,global.mousey,obj_grounddraw) and distance_to_object(obj_character)&gt;1
+{instance_create(global.mousex,global.mousey,obj_grounddraw)}
+
+if erase=true
+{
+    var _e = instance_place(self.x,self.y,obj_enemydoodle)
+    var _d = instance_place(self.x,self.y,obj_grounddraw)
+    if place_meeting(self.x,self.y,_e) _e.alarm[5]=1;
+    if place_meeting(self.x,self.y,_d) with _d instance_destroy();
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>self.x=global.mousex
+self.y=global.mousey
+
+if click=true and !instance_position(global.mousex,global.mousey,obj_grounddraw) and distance_to_object(obj_character)&gt;1
+{instance_create(global.mousex,global.mousey,obj_grounddraw)}
+
+if erase=true
+{
+    var _e = instance_place(self.x,self.y,obj_enemydoodle)
+    var _d = instance_place(self.x,self.y,obj_grounddraw)
+    if place_meeting(self.x,self.y,_e) _e.alarm[5]=1;
+    if place_meeting(self.x,self.y,_d) with _d instance_destroy();
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>image_angle=random(360)
+
+self.x=global.mousex
+self.y=global.mousey
+touching=false
+
+if click=true and !instance_position(global.mousex,global.mousey,obj_grounddraw) and distance_to_object(obj_character)&gt;1
+{instance_create(global.mousex,global.mousey,obj_grounddraw)}
+
+if erase=true
+{
+    var _e = instance_place(self.x,self.y,obj_enemydoodle)
+    var _d = instance_place(self.x,self.y,obj_grounddraw)
+    if place_meeting(self.x,self.y,_e) _e.alarm[5]=1;
+    if place_meeting(self.x,self.y,_d) with _d instance_destroy();
+}
+
+if gamepad_button_check(0,gp_shoulderl) alarm[0]=1;
+if gamepad_button_check(0,gp_shoulderr) alarm[1]=1;
+if gamepad_button_check_released(0,gp_shoulderl) alarm[2]=1;
+if gamepad_button_check_released(0,gp_shoulderr) alarm[3]=1;
 </string>
           </argument>
         </arguments>

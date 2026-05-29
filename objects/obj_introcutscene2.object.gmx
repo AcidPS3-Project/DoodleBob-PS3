@@ -118,6 +118,78 @@ obj_planktondummy.depth=obj_cbdoor.depth+1
         </arguments>
       </action>
     </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if dialogue&gt;0 and dialogue!=3 and dialogue!=5 and dialogue!=13 and gamepad_button_check_pressed(0,gp_face1)
+{
+    if dialogue=2
+    {
+    if !instance_position(obj_cbdoor.x,obj_cbdoor.y,obj_cbdoorlock)
+    {instance_create(obj_cbdoor.x,obj_cbdoor.y,obj_cbdoorlock)}
+    }
+    
+    if dialogue=4
+    {
+    if !instance_position(48,272,obj_chummoustache)
+    {instance_create(48,272,obj_chummoustache)};
+    if !instance_position(128,272,obj_chumwand)
+    {instance_create(128,272,obj_chumwand)};
+    if !instance_position(208,272,obj_chumdollar)
+    {instance_create(208,272,obj_chumdollar)};
+    if !instance_position(288,272,obj_chumacorn)
+    {instance_create(288,272,obj_chumacorn)};
+    }
+    
+    if dialogue=12
+    {
+    audio_play_sound(snd_zoomdoodles,1,false)
+    obj_chummoustache.hspeed=-8 obj_chummoustache.vspeed=-12
+    obj_chumwand.hspeed=-4 obj_chumwand.vspeed=-12
+    obj_chumdollar.vspeed=4 obj_chumdollar.vspeed=-12
+    obj_chumacorn.hspeed=8 obj_chumacorn.vspeed=-12
+    alarm[1]=30
+    }
+    
+    if dialogue=16
+    {
+    obj_spongebobdummy.sprite_index=sb_walkR
+    obj_spongebobdummy.image_speed=.5
+    obj_spongebobdummy.hspeed=16
+    }
+    
+    if dialogue=17
+    {
+    obj_cbdoor.image_single=1
+    audio_play_sound(snd_doorclose2,1,false)
+    alarm[2]=30
+    }
+    dialogue+=1;
+}
+if gamepad_button_check_pressed(0,gp_start)
+{
+    audio_stop_all();
+    room_goto(rm_levelselect);
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
@@ -164,117 +236,6 @@ if dialogue=16
 if dialogue=17
 {draw_sbtext(spr_planktoncs,3,c_green,0,"You can run but you can't hide, Spongebrat! #If my army of evil doodles doesn't find you... #your friends will! HAHAHAHA!")}
 </string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="32">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if dialogue=2
-{
-if !instance_position(obj_cbdoor.x,obj_cbdoor.y,obj_cbdoorlock)
-{instance_create(obj_cbdoor.x,obj_cbdoor.y,obj_cbdoorlock)}
-}
-
-if dialogue=4
-{
-if !instance_position(48,272,obj_chummoustache)
-{instance_create(48,272,obj_chummoustache)};
-if !instance_position(128,272,obj_chumwand)
-{instance_create(128,272,obj_chumwand)};
-if !instance_position(208,272,obj_chumdollar)
-{instance_create(208,272,obj_chumdollar)};
-if !instance_position(288,272,obj_chumacorn)
-{instance_create(288,272,obj_chumacorn)};
-}
-
-if dialogue=12
-{
-audio_play_sound(snd_zoomdoodles,1,false)
-obj_chummoustache.hspeed=-8 obj_chummoustache.vspeed=-12
-obj_chumwand.hspeed=-4 obj_chumwand.vspeed=-12
-obj_chumdollar.vspeed=4 obj_chumdollar.vspeed=-12
-obj_chumacorn.hspeed=8 obj_chumacorn.vspeed=-12
-alarm[1]=30
-}
-
-if dialogue=16
-{
-obj_spongebobdummy.sprite_index=sb_walkR
-obj_spongebobdummy.image_speed=.5
-obj_spongebobdummy.hspeed=16
-}
-
-if dialogue=17
-{
-obj_cbdoor.image_single=1
-audio_play_sound(snd_doorclose2,1,false)
-alarm[2]=30
-}
-
-if dialogue&gt;0 and dialogue!=3 and dialogue!=5 and dialogue!=13 keypress=false
-{dialogue+=1 keypress=true}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="13">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>audio_stop_all()
-room_goto(rm_levelselect)</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="10" enumb="32">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>keypress=false</string>
           </argument>
         </arguments>
       </action>
