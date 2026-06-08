@@ -28,7 +28,7 @@
             <string>dialogue=0
 keypress=false
 alarm[0]=20
-obj_cbdoor.image_single=1
+obj_cbdoor.image_speed=0; obj_cbdoor.image_index=1;
 audio_play_sound(msc_chumbucket,0,true)
 
 create1=false
@@ -100,7 +100,7 @@ room_goto(rm_intro23)</string>
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>obj_cbdoor.image_single=0
+            <string>obj_cbdoor.image_speed=0; obj_cbdoor.image_index=0;
 instance_create(170,414,obj_spongebobdummy)
 obj_spongebobdummy.depth=obj_cbdoor.depth+1
 obj_spongebobdummy.sprite_index=sb_kickedR
@@ -174,7 +174,7 @@ obj_planktondummy.depth=obj_cbdoor.depth+1
     
     if dialogue=17
     {
-    obj_cbdoor.image_single=1
+    obj_cbdoor.image_index=1;
     audio_play_sound(snd_doorclose2,1,false)
     alarm[2]=30
     }

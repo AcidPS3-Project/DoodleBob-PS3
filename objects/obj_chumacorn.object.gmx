@@ -51,7 +51,7 @@ animend=false</string>
             <string>if animend=false
 {
 animend=true
-image_single=(image_number-1)
+image_speed=0; image_index=(image_number-1)
 }</string>
           </argument>
         </arguments>

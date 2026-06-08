@@ -315,8 +315,8 @@ if self.y&lt;=-200 and vspeed&lt;0 and attack=1 and armshot=0
 {
 vspeed=0
 self.y=-200
-obj_pencilarmR.image_single=1
-obj_pencilarmL.image_single=1
+obj_pencilarmR.image_speed=0; image_index=1
+obj_pencilarmL.image_speed=0; image_index=1
 audio_play_sound(snd_krabsblast,1,false)
 instance_create(x+78,y+224,obj_armlaser)
 }
@@ -339,8 +339,8 @@ movebackx=true
 movebacky=true 
 hspeed=-10
 vspeed=-8
-obj_pencilarmR.image_single=0 
-obj_pencilarmL.image_single=0
+obj_pencilarmR.image_speed=0; image_index=0 
+obj_pencilarmL.image_speed=0; image_index=0
 armlower=true
 }
 
@@ -404,6 +404,29 @@ if global.bosshealth&lt;=0
         </arguments>
       </action>
     </event>
+    <event eventtype="4" ename="obj_planktonwall">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if attack=2
+{hspeed=-hspeed}</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="4" ename="obj_homingpencil">
       <action>
         <libid>1</libid>
@@ -432,29 +455,6 @@ audio_play_sound(choose(snd_planktonhurt1,snd_planktonhurt2,snd_planktonhurt3),1
 with(other)instance_destroy()
 }
 </string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_planktonwall">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if attack=2
-{hspeed=-hspeed}</string>
           </argument>
         </arguments>
       </action>

@@ -29,7 +29,7 @@
 global.mousey=240;
 mx=320;
 my=240;
-global.demo=1;
+global.demo=0;
 sns=3;
 gmin=0.4;
 </string>

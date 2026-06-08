@@ -104,79 +104,21 @@ if dialogue=26
 if dialogue=27
 {draw_sbtext(spr_spongebobcs,1,c_yellow,0,"Good luck, DoodleBob!")}
 if dialogue=28
-{audio_stop_all() room_goto(rm_planktonboss)}</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="32">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if dialogue=11
-{instance_create(view_xview,view_yview,obj_darkbg) audio_play_sound(msc_penciltron,0,true)}
+{audio_stop_all()room_goto(rm_planktonboss);}
 
-if dialogue&gt;0 and dialogue!=12 and keypress=false
-{dialogue+=1 keypress=true}
+if gamepad_button_check_pressed(0,gp_face1)
+{
+    if dialogue=11
+    {instance_create(view_xview,view_yview,obj_darkbg) audio_play_sound(msc_penciltron,0,true)}
+    
+    if dialogue!=12 dialogue+=1;
+}
+if gamepad_button_check_pressed(0,gp_start)
+{
+    audio_stop_all();
+    room_goto(rm_planktonboss);
+}
 </string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="13">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>audio_stop_all()
-room_goto(rm_planktonboss)</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="10" enumb="32">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>keypress=false</string>
           </argument>
         </arguments>
       </action>

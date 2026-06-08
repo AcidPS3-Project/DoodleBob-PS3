@@ -75,7 +75,7 @@ if image_alpha&lt;=0
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_single=2</string>
+            <string>image_speed=0; image_index=2</string>
           </argument>
         </arguments>
       </action>

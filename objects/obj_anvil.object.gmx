@@ -79,7 +79,7 @@ audio_play_sound(snd_slam,1,false)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_single=(image_number-1)
+            <string>image_speed=0; image_index=(image_number-1)
 audio_stop_sound(snd_draw)
 
 if room=rm_planktonbeat

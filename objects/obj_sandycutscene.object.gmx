@@ -96,86 +96,28 @@ if dialogue=22
 if dialogue=23
 {draw_sbtext(spr_spongebobcs,0,c_yellow,0,"Good luck!")}
 if dialogue=24
-{audio_stop_all() room_goto(rm_sandyboss)}</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="32">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if dialogue=13 and !audio_is_playing(snd_acornpower)
-{audio_play_sound(snd_acornpower,1,false)}
+{audio_stop_all() room_goto(rm_sandyboss)}
 
-if dialogue=14 and !audio_is_playing(snd_sandygrow)
-{audio_play_sound(snd_sandygrow,1,false) obj_sandydummy.sprite_index=spr_sandytransform1}
-
-if dialogue=17
-{if !instance_position(7680,208,obj_metalwall1) {instance_create(7680,208,obj_metalwall1) audio_play_sound(snd_doorclose,1,false)}
-if !instance_position(7712,208,obj_metalwall1) {instance_create(7712,208,obj_metalwall1)}}
-
-if dialogue&gt;0 and dialogue!=15 and keypress=false
-{dialogue+=1 keypress=true}
+if gamepad_button_check_pressed(0,gp_face1)
+{
+    if dialogue=13 and !audio_is_playing(snd_acornpower)
+    {audio_play_sound(snd_acornpower,1,false)}
+    
+    if dialogue=14 and !audio_is_playing(snd_sandygrow)
+    {audio_play_sound(snd_sandygrow,1,false) obj_sandydummy.sprite_index=spr_sandytransform1}
+    
+    if dialogue=17
+    {if !instance_position(7680,208,obj_metalwall1) {instance_create(7680,208,obj_metalwall1) audio_play_sound(snd_doorclose,1,false)}
+    if !instance_position(7712,208,obj_metalwall1) {instance_create(7712,208,obj_metalwall1)}}
+    
+    if dialogue!=15 dialogue+=1;
+}
+if gamepad_button_check_pressed(0,gp_start)
+{
+    audio_stop_all();
+    room_goto(rm_sandyboss);
+}
 </string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="13">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>audio_stop_all()
-room_goto(rm_sandyboss)</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="10" enumb="32">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>keypress=false</string>
           </argument>
         </arguments>
       </action>

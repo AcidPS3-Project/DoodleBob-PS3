@@ -91,6 +91,32 @@ if image_alpha&lt;=0 and fade=true
         </arguments>
       </action>
     </event>
+    <event eventtype="4" ename="obj_robotwalldummy">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>//if the floor is under you, stop moving down
+if gravity&gt;0 or vspeed&gt;0
+{vspeed=0 
+self.y=(other.y-16)
+gravity=0}</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="4" ename="obj_pattywall">
       <action>
         <libid>1</libid>
@@ -141,32 +167,6 @@ vspeed=0
 gravity=0
 fade=true
 }</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_robotwalldummy">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>//if the floor is under you, stop moving down
-if gravity&gt;0 or vspeed&gt;0
-{vspeed=0 
-self.y=(other.y-16)
-gravity=0}</string>
           </argument>
         </arguments>
       </action>

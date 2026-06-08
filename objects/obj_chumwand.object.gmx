@@ -53,7 +53,7 @@ audio_play_sound(snd_draw,0,true)
             <string>if animend=false
 {
 animend=true
-image_single=(image_number-1)
+image_speed=0; image_index=(image_number-1)
 obj_introcutscene2.create2=false
 obj_introcutscene2.dialogue=6
 audio_stop_sound(snd_draw)

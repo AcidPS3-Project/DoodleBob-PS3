@@ -309,6 +309,38 @@ alarm[6]=90
         </arguments>
       </action>
     </event>
+    <event eventtype="4" ename="obj_krabswall2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if jump=true and pause=false
+{
+pause=true
+move_towards_point(self.x,self.y,0)
+if num=0
+{alarm[0]=30}
+if num=1
+{alarm[1]=30}
+if num=2
+{alarm[2]=30}
+}</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="4" ename="obj_krabswall1b">
       <action>
         <libid>1</libid>
@@ -331,6 +363,33 @@ alarm[6]=90
 run=false
 sprite_index=spr_krabsjumpR
 right=true
+move_towards_point(obj_krabswall2.x,obj_krabswall2.y,10)}</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_krabswall1a">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if jump=false
+{jump=true
+run=false
+sprite_index=spr_krabsjumpL
+right=false
 move_towards_point(obj_krabswall2.x,obj_krabswall2.y,10)}</string>
           </argument>
         </arguments>
@@ -446,65 +505,6 @@ if num=3 and landing&lt;3
     {hspeed=0 sprite_index=spr_krabscontrolR landing=0 instance_create(self.x-40,self.y-14,obj_krabsbeam1)}
     }
 }</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_krabswall2">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if jump=true and pause=false
-{
-pause=true
-move_towards_point(self.x,self.y,0)
-if num=0
-{alarm[0]=30}
-if num=1
-{alarm[1]=30}
-if num=2
-{alarm[2]=30}
-}</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_krabswall1a">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if jump=false
-{jump=true
-run=false
-sprite_index=spr_krabsjumpL
-right=false
-move_towards_point(obj_krabswall2.x,obj_krabswall2.y,10)}</string>
           </argument>
         </arguments>
       </action>

@@ -241,6 +241,45 @@ if global.bosshealth&lt;=0
         </arguments>
       </action>
     </event>
+    <event eventtype="4" ename="obj_tdfloor">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>//if the floor is under you, stop moving down
+vspeed=0 
+self.y=672-70
+jump=false
+gravity=0
+
+if jumping=true
+{hspeed=0 alarm[0]=15 audio_play_sound(snd_sandystomp,1,false) view_object[0]=obj_shakes};
+
+if hspeed=0 or jumping=false
+    {
+    if right=true {sprite_index=spr_sandystandR}
+    if right=false {sprite_index=spr_sandystandL}
+    }
+    
+if jumping=false and run=false
+{sprite_index=spr_sandytransform2 audio_play_sound(snd_sandystomp,1,false) audio_play_sound(snd_sandyshrink,1,false)}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="4" ename="obj_robotwall">
       <action>
         <libid>1</libid>
@@ -293,45 +332,6 @@ if run=true
 
 if jump=true
 {sprite_index=spr_sandyjumpR hspeed=5}</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_tdfloor">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>//if the floor is under you, stop moving down
-vspeed=0 
-self.y=672-70
-jump=false
-gravity=0
-
-if jumping=true
-{hspeed=0 alarm[0]=15 audio_play_sound(snd_sandystomp,1,false) view_object[0]=obj_shakes};
-
-if hspeed=0 or jumping=false
-    {
-    if right=true {sprite_index=spr_sandystandR}
-    if right=false {sprite_index=spr_sandystandL}
-    }
-    
-if jumping=false and run=false
-{sprite_index=spr_sandytransform2 audio_play_sound(snd_sandystomp,1,false) audio_play_sound(snd_sandyshrink,1,false)}
-</string>
           </argument>
         </arguments>
       </action>

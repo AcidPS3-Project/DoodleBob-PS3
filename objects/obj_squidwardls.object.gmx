@@ -33,7 +33,7 @@ if global.squidwardboss=false
 if global.squidwardboss=true
 {image1=1 image2=2}
 
-image_single=image1</string>
+image_speed=0; image_index=image1</string>
           </argument>
         </arguments>
       </action>
@@ -79,18 +79,18 @@ image_single=image1</string>
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if gamepad_button_check_pressed(0,gp_face1) alarm[0]=1;
+            <string>if gamepad_button_check_pressed(0,gp_face4) alarm[0]=1;
 
 /*
 {
-    image_single=image2
+    image_speed=0; image_index=image2
     if soundplay=false
     {
         soundplay=true;
         audio_play_sound(snd_mouseoverbutton,1,false);
     }
     
-    image_single=image1
+    image_speed=0; image_index=image1
     soundplay=false
 }
 </string>

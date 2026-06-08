@@ -25,10 +25,14 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>right=false
-image_speed=.1
-audio_play_sound(snd_bobdead,1,false)
-over=false
+            <string>///set graphics?
+image_blend=c_white;
+image_alpha=1;
+
+right=false;
+image_speed=0.1;
+audio_play_sound(snd_bobdead,1,false);
+over=false;
 </string>
           </argument>
         </arguments>
@@ -77,8 +81,8 @@ if lives&lt;=0 and !instance_exists(obj_gameover)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if right=true {sprite_index=db_deadR}
-if right=false {sprite_index=db_deadL}</string>
+            <string>if right=true sprite_index=db_deadR else sprite_index=db_deadL;
+</string>
           </argument>
         </arguments>
       </action>
@@ -102,11 +106,12 @@ if right=false {sprite_index=db_deadL}</string>
             <kind>1</kind>
             <string>if over=false
 {
-over=true
-image_speed=0
-image_index=15
-alarm[0]=30
-}</string>
+    over=true;
+    image_speed=0;
+    image_index=15;
+    alarm[0]=30;
+}
+</string>
           </argument>
         </arguments>
       </action>

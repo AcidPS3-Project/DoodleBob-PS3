@@ -110,7 +110,7 @@ if create=false
           <argument>
             <kind>1</kind>
             <string>draw_sprite_ext(sprite_index,image_index,x+2,y-10,1,1,0,c_white,image_alpha);
-if sprite_index == spr_title2 draw_sprite_ext(spr_ps3port_demo,0,x+12,y+185,1,1,0,c_white,image_alpha);
+if sprite_index == spr_title2 draw_sprite_ext(spr_ps3port,0,x+12,y+185,1,1,0,c_white,image_alpha);
 </string>
           </argument>
         </arguments>

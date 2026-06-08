@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if room=rm_chumbucket {image_single=1}</string>
+            <string>if room=rm_chumbucket {image_speed=0; image_index=1};
+</string>
           </argument>
         </arguments>
       </action>

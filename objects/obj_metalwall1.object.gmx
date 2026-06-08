@@ -48,7 +48,7 @@ soundplay=false</string>
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_single=8
+            <string>image_speed=0; image_index=8
 
 if soundplay=false
 {soundplay=true audio_play_sound(snd_doorclose2,1,false) audio_stop_sound(snd_doorclose)}

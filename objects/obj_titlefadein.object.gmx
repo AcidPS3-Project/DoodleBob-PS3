@@ -75,7 +75,8 @@ draw_set_alpha(image_alpha)
 draw_rectangle(view_xview,view_yview,view_xview+640,view_yview+480,false)
 draw_set_color(c_white)
 
-if image_alpha&lt;=0 {instance_activate_object(obj_titlecontrol) instance_destroy()}</string>
+if image_alpha&lt;=0 {instance_activate_object(obj_titlecontrol) instance_destroy()}
+</string>
           </argument>
         </arguments>
       </action>

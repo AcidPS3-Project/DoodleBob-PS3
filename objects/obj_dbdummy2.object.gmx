@@ -25,12 +25,17 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>right=true
+            <string>///set graphics?
+image_blend=c_white;
+image_alpha=1;
+
+right=true
 visible=true
 
 instance_create(self.x+37,self.y-30,obj_parrowdummy)
 instance_create(self.x-16,self.y-62,obj_smarrow1dummy)
-instance_create(self.x+16,self.y-62,obj_smarrow2dummy)</string>
+instance_create(self.x+16,self.y-62,obj_smarrow2dummy)
+</string>
           </argument>
         </arguments>
       </action>

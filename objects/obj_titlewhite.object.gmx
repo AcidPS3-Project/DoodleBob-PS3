@@ -25,8 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>alpha=1
-with(obj_titlelinebig)instance_destroy()</string>
+            <string>alpha=1;
+with(obj_titlelinebig){instance_destroy();}
+</string>
           </argument>
         </arguments>
       </action>
@@ -48,10 +49,10 @@ with(obj_titlelinebig)instance_destroy()</string>
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>alpha-=.1
+            <string>alpha-=0.1;
 
-if alpha&lt;=0
-{instance_destroy()}</string>
+if alpha&lt;=0 instance_destroy();
+</string>
           </argument>
         </arguments>
       </action>
@@ -73,7 +74,8 @@ if alpha&lt;=0
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_sprite_ext(spr_white,-1,0,0,20,18,0,c_white,alpha)</string>
+            <string>draw_sprite_ext(spr_white,-1,0,0,20,18,0,c_white,alpha);
+</string>
           </argument>
         </arguments>
       </action>

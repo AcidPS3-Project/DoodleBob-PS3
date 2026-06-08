@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_single=0
+            <string>image_speed=0; image_index=0
 vspeed=10
 audio_play_sound(snd_teleportin,1,false)
 </string>

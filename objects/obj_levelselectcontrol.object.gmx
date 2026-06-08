@@ -28,6 +28,7 @@
             <string>lives=3
 audio_play_sound(msc_levelselect,0,true);
 
+/*
 if global.demo==1 instance_create(320,180,obj_demo)
 else
 {

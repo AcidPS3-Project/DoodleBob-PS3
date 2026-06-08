@@ -25,10 +25,34 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_speed=.5
+            <string>///set graphics?
+image_blend=c_white;
+image_alpha=1;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>image_speed=0.5
 move=false
 follow=false
-stick=true</string>
+stick=true
+</string>
           </argument>
         </arguments>
       </action>
@@ -53,7 +77,7 @@ stick=true</string>
             <string>if room=rm_intro2
 {
 depth=obj_spongebobdummy.depth-.1
-image_single=2
+image_speed=0; image_index=2
 
 if obj_spongebobdummy.sprite_index=sb_kickedR
 {self.x=obj_spongebobdummy.x+62 self.y=obj_spongebobdummy.y-44}
@@ -114,8 +138,9 @@ if obj_spongebobdummy.sprite_index=sb_standL or obj_spongebobdummy.sprite_index=
 
 if room=rm_intro2
 {
-depth=obj_spongebobdummy.depth-.1
-image_single=2
+depth=obj_spongebobdummy.depth-0.1;
+image_speed=0;
+image_index=2;
 
 if obj_spongebobdummy.sprite_index=sb_kickedR
 {self.x=obj_spongebobdummy.x+62 self.y=obj_spongebobdummy.y-44}
@@ -125,8 +150,9 @@ if obj_spongebobdummy.sprite_index=sb_standL or obj_spongebobdummy.sprite_index=
 
 if room=rm_intro3 and stick=true
 {
-depth=obj_spongebobdummy.depth-.1
-image_single=2
+depth=obj_spongebobdummy.depth-0.1;
+image_speed=0;
+image_index=2;
 
 if obj_spongebobdummy.sprite_index=sb_standR or obj_spongebobdummy.sprite_index=sb_walkR
 {self.x=obj_spongebobdummy.x-50 self.y=obj_spongebobdummy.y-44}
@@ -138,19 +164,17 @@ if obj_spongebobdummy.sprite_index=sb_holdupR
 if follow=true
 {
 move_towards_point(obj_paper.x,obj_paper.y,0)
-image_angle=direction-90
+image_angle=direction-90;
 }
 
-if follow=false
-{
-image_angle=0
-}
+if follow=false image_angle=0;
 
 if room=rm_intro3 and instance_exists(obj_dbdummy3)
 {
 if self.x&gt;=(obj_dbdummy3.x-65) and hspeed&gt;0
 {self.x=(obj_dbdummy3.x-65) hspeed=0 obj_spongebobdummy.sprite_index=sb_standR obj_introcutscene3.dialogue=15}
-}</string>
+}
+</string>
           </argument>
         </arguments>
       </action>

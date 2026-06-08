@@ -118,6 +118,7 @@
         <sound>sound\snd_planktonhurt3</sound>
       </sounds>
     </sounds>
+    <sound>sound\eralash</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\db_arm</sprite>
@@ -426,6 +427,7 @@
     <background>background\bg_pahouse</background>
     <background>background\bg_credits1</background>
     <background>background\bg_credits2</background>
+    <background>background\uhhhhhh</background>
   </backgrounds>
   <paths name="paths">
     <path>paths\pth_squidward</path>
@@ -694,6 +696,7 @@
     <object>objects\obj_tsglogo3</object>
     <object>objects\obj_untouchableparent</object>
     <object>objects\obj_wrench</object>
+    <object>objects\obj_demo_end</object>
   </objects>
   <timelines name="timelines">
     <timeline>timelines\tml_patcutscene</timeline>

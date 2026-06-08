@@ -25,6 +25,29 @@
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>///set graphics?
+image_blend=c_white;
+image_alpha=1;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>jump=false
 hover=0
 right=true
@@ -342,6 +365,7 @@ if jsnd=3 {jumpsound=snd_bobjump3}
 instance_activate_object(self)
 instance_deactivate_region(self.x-800,self.y-800,1600,1600,false,true)
 instance_activate_region(self.x-800,self.y-800,1600,1600,true)
+instance_activate_object(obj_debugger)
 instance_activate_object(obj_control)
 instance_activate_object(obj_arm)
 instance_activate_object(obj_targeteraser)
@@ -364,7 +388,6 @@ instance_activate_object(obj_planktontarget)
 instance_activate_object(obj_planktonwall)
 instance_activate_object(obj_homingpencil)
 instance_activate_object(obj_planktonview)
-instance_activate_object(obj_debugger)
 </string>
           </argument>
         </arguments>
@@ -519,96 +542,6 @@ if (!place_free(self.x+8,self.y-20) or !place_free(self.x-8,self.y-20)) and plac
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_laserparent">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if hurt=false
-{
-hurt=true
-health-=5
-alarm[2]=5
-alarm[4]=60
-audio_play_sound(snd_bobhurt,1,false)
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_deathblast">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if hurt=false
-{
-hurt=true
-health-=15
-alarm[2]=5
-alarm[4]=60
-audio_play_sound(snd_bobhurt,1,false)
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_enemypawn">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if hurt=false and other.dead=false
-{
-hurt=true
-health-=20
-alarm[2]=5
-alarm[4]=60
-audio_play_sound(snd_bobhurt,1,false)
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="4" ename="obj_sandy">
       <action>
         <libid>1</libid>
@@ -639,7 +572,7 @@ audio_play_sound(snd_bobhurt,1,false)
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_enemybullparent">
+    <event eventtype="4" ename="obj_laserparent">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -657,36 +590,6 @@ audio_play_sound(snd_bobhurt,1,false)
           <argument>
             <kind>1</kind>
             <string>if hurt=false
-{
-hurt=true
-health-=5
-alarm[2]=5
-alarm[4]=60
-audio_play_sound(snd_bobhurt,1,false)
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_enemycharparent">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if hurt=false and other.dead=false
 {
 hurt=true
 health-=5
@@ -768,6 +671,126 @@ move_contact(90)
 if !place_free(self.x,self.y+(sprite_get_bbox_top(mask_index)-85)) and !place_free(self.x,self.y+(sprite_get_bbox_bottom(mask_index)-85))
 {
 vspeed=0 
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_enemypawn">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if hurt=false and other.dead=false
+{
+hurt=true
+health-=20
+alarm[2]=5
+alarm[4]=60
+audio_play_sound(snd_bobhurt,1,false)
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_enemycharparent">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if hurt=false and other.dead=false
+{
+hurt=true
+health-=5
+alarm[2]=5
+alarm[4]=60
+audio_play_sound(snd_bobhurt,1,false)
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_enemybullparent">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if hurt=false
+{
+hurt=true
+health-=5
+alarm[2]=5
+alarm[4]=60
+audio_play_sound(snd_bobhurt,1,false)
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_deathblast">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if hurt=false
+{
+hurt=true
+health-=15
+alarm[2]=5
+alarm[4]=60
+audio_play_sound(snd_bobhurt,1,false)
 }
 </string>
           </argument>

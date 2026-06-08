@@ -25,6 +25,29 @@
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>///set graphics?
+image_blend=c_white;
+image_alpha=1;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>right=false
 visible=true
 move=false</string>
@@ -53,7 +76,7 @@ move=false</string>
 {
 if self.x&gt;=obj_paper.x and move=true
 {instance_create(view_xview,view_yview,obj_dbfadeend)
-obj_paper.image_single=0
+obj_paper.image_speed=0; image_index=0
 instance_destroy()}
 }</string>
           </argument>
@@ -78,7 +101,7 @@ instance_destroy()}
           <argument>
             <kind>1</kind>
             <string>if sprite_index=db_teleportoutc and move=false
-{image_single=(image_number-1) move=true move_towards_point(obj_paper.x,obj_paper.y+30,6)}</string>
+{image_speed=0; image_index=(image_number-1) move=true move_towards_point(obj_paper.x,obj_paper.y+30,6)}</string>
           </argument>
         </arguments>
       </action>

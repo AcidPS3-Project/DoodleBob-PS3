@@ -151,7 +151,30 @@ audio_stop_sound(snd_earthquake)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if dialogue=1
+            <string>if gamepad_button_check_pressed(0,gp_face1)
+{
+    if dialogue=4
+    {obj_planktondummy2.sprite_index=spr_planktonstandL}
+    
+    if dialogue=5
+    {
+        instance_create(obj_planktondummy2.x+17,224,obj_anvil) 
+        instance_create(obj_parrowdummy.x,obj_parrowdummy.y,obj_parrowdummyb)
+        instance_create(obj_parrowdummy.x,obj_parrowdummy.y,obj_pbeamdummyb)
+        with(obj_parrowdummy)instance_destroy()
+        obj_planktondummy2.sprite_index=spr_planktonstandL2
+    }
+    
+    if dialogue=7 obj_anvil.vspeed=10;
+    
+    if dialogue!=6 and dialogue!=8 dialogue+=1
+}
+if gamepad_button_check_pressed(0,gp_start)
+{
+    if !instance_exists(obj_fadeawayend) instance_create(0,0,obj_fadeawayend);
+}
+
+if dialogue=1
 {draw_sbtext(spr_planktoncs,6,c_green,0,"No... how is this possible? I finally had infinite power, #and you had to screw everything up! Curse you!!!")}
 if dialogue=2
 {draw_sbtext(spr_spongebobcs,4,c_yellow,0,"If you had infinite power, how did DoodleBob just beat #you?")}
@@ -169,94 +192,11 @@ if dialogue=10
 {draw_sbtext(spr_spongebobcs,0,c_yellow,0,"Mission accomplished, DoodleBob! Time to head for home!")}
 
 if dialogue=11 and soundplay=false
-{soundplay=true audio_play_sound(msc_levelend,1,false) alarm[2]=20 obj_dbdummy2.sprite_index=db_win with(obj_parrowdummy)instance_destroy() with(obj_smarrow1dummy)instance_destroy() with(obj_smarrow2dummy)instance_destroy()}
+{audio_stop_all(); soundplay=true audio_play_sound(msc_levelend,1,false) alarm[2]=20 obj_dbdummy2.sprite_index=db_win with(obj_parrowdummy)instance_destroy() with(obj_smarrow1dummy)instance_destroy() with(obj_smarrow2dummy)instance_destroy()}
 
 if soundplay2=true and audio_sound_get_track_position(msc_levelend)&gt;6.5
 {soundplay2=false instance_create(obj_dbdummy2.x,obj_dbdummy2.y,obj_dbteleportout) with(obj_dbdummy2)instance_destroy()}
 </string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="32">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if dialogue=4
-{obj_planktondummy2.sprite_index=spr_planktonstandL}
-
-if dialogue=5
-{
-instance_create(obj_planktondummy2.x+17,224,obj_anvil) 
-instance_create(obj_parrowdummy.x,obj_parrowdummy.y,obj_parrowdummyb)
-instance_create(obj_parrowdummy.x,obj_parrowdummy.y,obj_pbeamdummyb)
-with(obj_parrowdummy)instance_destroy()
-obj_planktondummy2.sprite_index=spr_planktonstandL2
-}
-
-if dialogue=7
-{obj_anvil.vspeed=10}
-
-if dialogue&gt;0 and dialogue!=6 and dialogue!=8 and keypress=false
-{dialogue+=1 keypress=true}</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="13">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if !instance_exists(obj_fadeawayend)
-{instance_create(0,0,obj_fadeawayend)}</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="10" enumb="32">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>keypress=false</string>
           </argument>
         </arguments>
       </action>

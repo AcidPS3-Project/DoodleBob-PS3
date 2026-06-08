@@ -158,7 +158,32 @@ room_goto(rm_credits)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if dialogue=1
+            <string>if gamepad_button_check_pressed(0,gp_face1)
+{
+    if dialogue=9
+    {instance_create(obj_spongebobdummy.x-90,obj_spongebobdummy.y-40,obj_paper) obj_paper.image_speed=0; image_index=1 obj_spongebobdummy.sprite_index=sb_grabL2}
+    
+    if dialogue=16
+    {obj_dbdummy4.sprite_index=db_teleportoutc audio_play_sound(snd_teleportout,1,false)}
+    
+    if dialogue=18
+    {instance_create(-30,356,obj_planktondummy) obj_planktondummy.sprite_index=spr_planktoncrawlR obj_planktondummy.hspeed=3 obj_planktondummy.image_speed=.25}
+    
+    if dialogue=20
+    {instance_create(obj_planktondummy.x+27,-83,obj_anvil2)}
+    
+    if dialogue=23
+    {zoomin=true instance_create(0,0,obj_endfadeout)}
+    
+    if dialogue!=17 and dialogue!=19 and dialogue!=21 dialogue+=1;
+}
+if gamepad_button_check_pressed(0,gp_start)
+{
+    audio_stop_all();
+    room_goto(rm_credits);
+}
+
+if dialogue=1
 {draw_sbtext(spr_spongebobcs,20,c_yellow,0,"Great job, DoodleBob! Thanks to you, everything's back to #normal.")}
 if dialogue=2
 {draw_sbtext(spr_krabscs,3,c_red,0,"Argh, ye did it, me boy! Ye got rid of me restauraunt's only #competition! Now I'll make more money than ever! Ar ar ar ar!")}
@@ -197,91 +222,8 @@ if dialogue=20
 if dialogue=22
 {draw_sbtext(spr_planktoncs,12,c_green,0,"Ouch...")}
 if dialogue=23
-{draw_sbtext(spr_spongebobcs,7,c_yellow,0,"Ah, I love happy endings!")}</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="32">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if dialogue=9
-{instance_create(obj_spongebobdummy.x-90,obj_spongebobdummy.y-40,obj_paper) obj_paper.image_single=1 obj_spongebobdummy.sprite_index=sb_grabL2}
-
-if dialogue=16
-{obj_dbdummy4.sprite_index=db_teleportoutc audio_play_sound(snd_teleportout,1,false)}
-
-if dialogue=18
-{instance_create(-30,356,obj_planktondummy) obj_planktondummy.sprite_index=spr_planktoncrawlR obj_planktondummy.hspeed=3 obj_planktondummy.image_speed=.25}
-
-if dialogue=20
-{instance_create(obj_planktondummy.x+27,-83,obj_anvil2)}
-
-if dialogue=23
-{zoomin=true instance_create(0,0,obj_endfadeout)}
-
-if dialogue&gt;0 and dialogue!=17 and dialogue!=19 and dialogue!=21 and keypress=false
-{dialogue+=1 keypress=true}
+{draw_sbtext(spr_spongebobcs,7,c_yellow,0,"Ah, I love happy endings!")}
 </string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="13">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>audio_stop_all()
-room_goto(rm_credits)</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="10" enumb="32">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>keypress=false</string>
           </argument>
         </arguments>
       </action>

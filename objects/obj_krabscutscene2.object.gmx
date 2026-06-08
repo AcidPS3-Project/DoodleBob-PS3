@@ -79,7 +79,13 @@ audio_stop_sound(snd_draw)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if dialogue=1
+            <string>if gamepad_button_check_pressed(0,gp_face1) dialogue+=1;
+if gamepad_button_check_pressed(0,gp_start)
+{
+    if !instance_exists(obj_fadeawayend) instance_create(0,0,obj_fadeawayend);
+}
+
+if dialogue=1
 {draw_sbtext(spr_krabscs,2,c_red,0,"Eh? What happened? Is that you, SpongeBob? Why do #ye look so pale, me boy?")}
 if dialogue=2
 {draw_sbtext(spr_doodlebobcs,0,c_white,0,"Gloffin wub bibbim nokim!")}
@@ -91,79 +97,11 @@ if dialogue=5
 {draw_sbtext(spr_krabscs,0,c_red,0,"Now, hurry up and go squash that bug Plankton for me! #Time is money!")}
 
 if dialogue=6 and soundplay=false
-{soundplay=true audio_play_sound(msc_levelend,1,false) alarm[0]=20 obj_dbdummy2.sprite_index=db_win with(obj_parrowdummy)instance_destroy() with(obj_smarrow1dummy)instance_destroy() with(obj_smarrow2dummy)instance_destroy()}
+{audio_stop_all(); soundplay=true; audio_play_sound(msc_levelend,1,false) alarm[0]=20 obj_dbdummy2.sprite_index=db_win with(obj_parrowdummy)instance_destroy() with(obj_smarrow1dummy)instance_destroy() with(obj_smarrow2dummy)instance_destroy()}
 
 if soundplay2=true and audio_sound_get_track_position(msc_levelend)&gt;6.5
 {soundplay2=false instance_create(obj_dbdummy2.x,obj_dbdummy2.y,obj_dbteleportout) with(obj_dbdummy2)instance_destroy()}
 </string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="32">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if dialogue&gt;0 and keypress=false
-{dialogue+=1 keypress=true}</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="13">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if !instance_exists(obj_fadeawayend)
-{instance_create(0,0,obj_fadeawayend)}</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="10" enumb="32">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>keypress=false</string>
           </argument>
         </arguments>
       </action>

@@ -109,7 +109,7 @@ if image_xscale&gt;=1 and grow1=true
 {image_xscale=1 grow1=false alarm[0]=140}
 
 if grow2=true
-{image_xscale+=.5 image_single=0 image_alpha+=.1}
+{image_xscale+=.5 image_speed=0; image_index=0 image_alpha+=.1}
 
 if image_xscale&gt;=8 and grow2=true
 {image_xscale=8 grow2=false alarm[1]=60 with(obj_planktondummy)instance_destroy() instance_create(view_xview+288,view_yview+0,obj_penciltrondummy)}

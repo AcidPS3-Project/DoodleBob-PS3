@@ -36,6 +36,7 @@ global.mousey=240;
 obj_debugger.mx=320;
 obj_debugger.my=240;
 health=100
+instance_activate_object(obj_debugger);
 instance_create(-32,0,obj_invisiwall)
 instance_create(room_width,0,obj_invisiwall)
 i=192
@@ -144,31 +145,9 @@ if create=true and !instance_position(i,room_height/2,obj_glare) {instance_creat
         draw_text(view_xview+10,view_yview+70,"FPS:"+string(fps))
         draw_set_color(c_white)
     }
+    if gamepad_button_check_pressed(0,gp_start) &amp;&amp; !instance_exists(obj_cutsceneparent) scr_pause();
 }
 </string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="13">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if !instance_exists(obj_cutsceneparent)
-{scr_pause()}</string>
           </argument>
         </arguments>
       </action>

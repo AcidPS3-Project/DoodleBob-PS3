@@ -25,6 +25,29 @@
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>///set graphics?
+image_blend=c_white;
+image_alpha=1;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>if room=rm_chumbucket
 {sprite_index=spr_planktonstandL}</string>
           </argument>
@@ -52,7 +75,8 @@
 {hspeed=0 self.x=176}
 
 if room=rm_ending and self.x&gt;220 and hspeed&gt;0
-{hspeed=0 image_single=0 obj_endcutscene.dialogue=20}</string>
+{hspeed=0 image_speed=0; image_index=0; obj_endcutscene.dialogue=20}
+</string>
           </argument>
         </arguments>
       </action>
