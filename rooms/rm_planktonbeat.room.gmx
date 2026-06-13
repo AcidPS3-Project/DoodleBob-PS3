@@ -64,6 +64,7 @@
     <instance objName="obj_cbfloor" x="576" y="448" name="inst_9F96B4E8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_dbdummy2" x="132" y="431" name="inst_093392F6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_planktoncutscene2" x="0" y="0" name="inst_47E0291A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_debugger" x="224" y="192" name="inst_0D84155D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

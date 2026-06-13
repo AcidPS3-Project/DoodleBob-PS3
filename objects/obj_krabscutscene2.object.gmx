@@ -28,7 +28,7 @@
             <string>dialogue=1
 keypress=false
 obj_krabsdummy.sprite_index=spr_krabsnormal
-
+a=0;
 soundplay=false
 soundplay2=false
 audio_play_sound(msc_krustykrab,0,true)
@@ -97,9 +97,9 @@ if dialogue=5
 {draw_sbtext(spr_krabscs,0,c_red,0,"Now, hurry up and go squash that bug Plankton for me! #Time is money!")}
 
 if dialogue=6 and soundplay=false
-{audio_stop_all(); soundplay=true; audio_play_sound(msc_levelend,1,false) alarm[0]=20 obj_dbdummy2.sprite_index=db_win with(obj_parrowdummy)instance_destroy() with(obj_smarrow1dummy)instance_destroy() with(obj_smarrow2dummy)instance_destroy()}
+{audio_stop_all(); soundplay=true; a=audio_play_sound(msc_levelend,1,false) alarm[0]=20 obj_dbdummy2.sprite_index=db_win with(obj_parrowdummy)instance_destroy() with(obj_smarrow1dummy)instance_destroy() with(obj_smarrow2dummy)instance_destroy()}
 
-if soundplay2=true and audio_sound_get_track_position(msc_levelend)&gt;6.5
+if soundplay2=true and audio_sound_get_track_position(a)&gt;6.5
 {soundplay2=false instance_create(obj_dbdummy2.x,obj_dbdummy2.y,obj_dbteleportout) with(obj_dbdummy2)instance_destroy()}
 </string>
           </argument>

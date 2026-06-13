@@ -7,4 +7,8 @@
 Yes, you heard right! This is the port of DoodleBob and the Magic Pencil. Not the DX version, because I only found [THIS](https://xpdev.itch.io/doodlebobdecompilation) decompilation so far.\
 And yes, an ACTUAL PS3 Port, rather than a silly remakes, hiding in the "Edition" names. Ah!
 
-Also this port is still upgrading, please wait...
+This project is now 100% complete!
+
+<a href="https://github.com/AcidPS3-Project">
+	<img src="https://img.shields.io/badge/Powered%20By-AcidPS3%20Project-blue?logo=playstation3" />
+</a>

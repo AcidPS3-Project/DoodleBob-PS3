@@ -27,8 +27,8 @@
     <deleteUnderlyingObj>0</deleteUnderlyingObj>
     <deleteUnderlyingTiles>-1</deleteUnderlyingTiles>
     <page>1</page>
-    <xoffset>-155</xoffset>
-    <yoffset>-170</yoffset>
+    <xoffset>-135</xoffset>
+    <yoffset>-37</yoffset>
   </makerSettings>
   <backgrounds>
     <background visible="-1" foreground="0" name="bg_treedome" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
@@ -1416,6 +1416,7 @@
     <instance objName="obj_robotwalldummy" x="7744" y="656" name="inst_4012916A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_robotwalldummy" x="7744" y="664" name="inst_F23D5F85" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_control" x="0" y="0" name="inst_C102924D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_debugger" x="288" y="592" name="inst_4D927FF1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="bg_tddoor" x="40" y="515" w="179" h="158" xo="0" yo="0" id="10000003" name="tile_4898A01F" depth="1000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

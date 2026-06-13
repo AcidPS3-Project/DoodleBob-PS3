@@ -34,7 +34,7 @@ global.wallnumberbu=instance_number(obj_robotwall)</string>
         </arguments>
       </action>
     </event>
-    <event eventtype="6" enumb="1">
+    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -51,11 +51,14 @@ global.wallnumberbu=instance_number(obj_robotwall)</string>
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if visible=true
+            <string>if global.mousex&lt;=x+8 and global.mousex&gt;=x-16
+    and global.mousey&gt;=y-8 and global.mousey&lt;=y+16
+    and visible=true and gamepad_button_check(0,gp_shoulderr)
 {
-visible=false
-global.wallnumber-=1
-}</string>
+    visible=false;
+    global.wallnumber--;
+}
+</string>
           </argument>
         </arguments>
       </action>

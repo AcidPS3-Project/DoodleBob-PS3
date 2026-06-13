@@ -73,6 +73,7 @@
     <instance objName="obj_bbfloor" x="576" y="448" name="inst_1C3ACEA6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_bbfloor" x="608" y="448" name="inst_EC73A359" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_introcutscene2" x="160" y="48" name="inst_BD94EC8A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_debugger" x="224" y="192" name="inst_F86EDFC0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="bg_cboutside" x="-48" y="-142" w="431" h="592" xo="0" yo="0" id="10000022" name="tile_4AB53493" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

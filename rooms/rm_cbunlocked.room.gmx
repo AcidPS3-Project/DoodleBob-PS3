@@ -74,6 +74,7 @@
     <instance objName="obj_spongebobdummy" x="480" y="432" name="inst_CBD4EC1E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_cbunlcutscene" x="0" y="16" name="inst_E692DDA7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_cbunlfadein" x="0" y="0" name="inst_0F7A7B92" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_debugger" x="224" y="192" name="inst_4A207A4C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="bg_cboutside" x="103" y="-142" w="431" h="592" xo="0" yo="0" id="10001894" name="tile_131642FE" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

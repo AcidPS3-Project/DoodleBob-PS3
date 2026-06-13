@@ -21,6 +21,6 @@ message_mouse_color(c_black)
 */
 {
  answer = show_question("Continue?")
- if answer == 0 {}
- if answer == 1 {if show_question("Are you sure?") {room_goto(rm_levelselect)} else {scr_pause()}}
+ if answer == 1 {}
+ if answer == 0 {if show_question("Are you sure?") {room_goto(rm_levelselect)} else {scr_pause()}}
 }

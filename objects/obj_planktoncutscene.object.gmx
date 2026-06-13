@@ -109,7 +109,11 @@ if dialogue=28
 if gamepad_button_check_pressed(0,gp_face1)
 {
     if dialogue=11
-    {instance_create(view_xview,view_yview,obj_darkbg) audio_play_sound(msc_penciltron,0,true)}
+    {
+        instance_create(view_xview,view_yview,obj_darkbg)
+        audio_stop_all();
+        audio_play_sound(msc_penciltron,0,true)
+    }
     
     if dialogue!=12 dialogue+=1;
 }

@@ -58,6 +58,7 @@
     <instance objName="obj_krabsls" x="176" y="240" name="inst_64391599" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_questionls" x="320" y="240" name="inst_8C3661D2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_lsfadein" x="0" y="0" name="inst_AE449AFC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_debugger" x="176" y="128" name="inst_244BF47C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>
